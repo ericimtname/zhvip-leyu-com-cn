@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ericimtname.github.io/zhvip-leyu-com-cn/sitemap.xml
