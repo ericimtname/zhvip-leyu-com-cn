@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>亚博体育 · 故事的开端</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fce4d6 0%, #fce0c2 25%, #fde9d8 50%, #fedfc2 75%, #fbd5b5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 42px;
+      padding: 3rem 2.8rem 3.2rem;
+      box-shadow: 0 20px 40px -12px rgba(180, 110, 60, 0.25),
+                  0 8px 18px rgba(210, 140, 90, 0.1);
+      transition: box-shadow 0.25s ease;
+      border: 1px solid rgba(255, 215, 180, 0.7);
+    }
+
+    .card:hover {
+      box-shadow: 0 28px 52px -16px rgba(170, 85, 30, 0.3),
+                  0 6px 16px rgba(190, 120, 70, 0.08);
+    }
+
+    .opening {
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+      color: #7f4f2b;
+      border-left: 5px solid #dda477;
+      padding-left: 1.2rem;
+      margin-bottom: 1.8rem;
+      font-weight: 350;
+      font-style: italic;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #663f1f;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #a87a59;
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid #edd7c6;
+      padding-bottom: 0.9rem;
+    }
+
+    p {
+      color: #3b2c21;
+      margin-bottom: 1.35rem;
+    }
+
+    .story-bridge {
+      background: #f7ede4;
+      padding: 1.4rem 1.8rem;
+      border-radius: 28px;
+      margin: 1.6rem 0 1.8rem;
+      font-size: 0.98rem;
+      border: 1px solid #eedbcb;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem 1.6rem;
+      margin: 1.6rem 0 1.4rem;
+    }
+
+    .feature-list li {
+      flex: 1 0 180px;
+      background: #fef8f3;
+      padding: 0.6rem 1.2rem 0.6rem 2.4rem;
+      border-radius: 60px;
+      position: relative;
+      color: #3f2c1b;
+      font-size: 0.96rem;
+      border: 1px solid #f2ddcd;
+      box-shadow: inset 0 1px 3px #f9ede3;
+    }
+
+    .feature-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0.9rem;
+      top: 0.55rem;
+      color: #ce8f64;
+      font-size: 1.1rem;
+    }
+
+    .quiet-cta {
+      background: #f4e1d1;
+      border-radius: 48px;
+      padding: 1.1rem 1.8rem;
+      text-align: center;
+      margin: 2rem 0 1.6rem;
+      border: 1px solid #eaccb7;
+    }
+
+    .quiet-cta a {
+      color: #633b1e;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s, background 0.15s;
+      padding: 0.15rem 0.25rem;
+    }
+
+    .quiet-cta a:hover {
+      border-bottom: 2px solid #ba7f58;
+      background: #fbeadc;
+      border-radius: 6px;
+    }
+
+    .faq-mini {
+      margin-top: 1.8rem;
+      background: #faf1ea;
+      padding: 1.6rem 1.8rem;
+      border-radius: 26px;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 470;
+      color: #562f14;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      letter-spacing: 0.02em;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "▹";
+      margin-right: 0.6rem;
+      color: #c48356;
+      font-size: 1.2rem;
+    }
+
+    .faq-mini details[open] summary::before {
+      content: "▸";
+    }
+
+    .faq-mini p {
+      margin: 0.6rem 0 0.2rem 1.4rem;
+      color: #4f3929;
+    }
+
+    .footer-note {
+      margin-top: 2.4rem;
+      font-size: 0.85rem;
+      color: #957a66;
+      text-align: center;
+      border-top: 1px solid #e6d3c3;
+      padding-top: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 2rem 1.3rem 2.2rem;
+        border-radius: 30px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .feature-list li {
+        flex: 1 0 100%;
+      }
+      .opening {
+        font-size: 1.05rem;
+        padding-left: 0.9rem;
+      }
+      .quiet-cta a {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 0.8rem;
+      }
+      .card {
+        padding: 1.6rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="opening">
+    — 有些事不需要太多理由，喜欢就好。
+  </div>
+
+  <h1>亚博体育</h1>
+  <div class="subhead">一个让你安心停靠的站点 · 故事从信任开始</div>
+
+  <p>
+    几年前第一次听说这个名字，朋友随口提了一句，我把它记在备忘录里，后来就成了常去的地方。没有复杂的门槛，也没有让人眼花缭乱的广告，页面干干净净的，像老朋友递过来的一杯温水。慢慢地，我发现自己不再需要反复比较，因为在这里能找到的，已经足够踏实。
+  </p>
+
+  <div class="story-bridge">
+    「做减法」是它给我的最直观感受。你想了解的，它都放在那里；你不需要的，它也不来打扰。许多网站总想把所有东西堆在首页，而这里更愿意留白，留给你自己去感受节奏。
+  </div>
+
+  <p>
+    当然，不是每个人都喜欢这种清淡的风格。可如果你也厌倦了每次都要翻过几层弹窗才能找到需要的内容，那么它可能会让你觉得舒服。它不标榜自己多特别，只是把该做的事情做好——这种朴素本身就挺难得的。
+  </p>
+
+  <ul class="feature-list">
+    <li>日常更新，内容稳定</li>
+    <li>界面清爽，不藏套路</li>
+    <li>信息直接，省去猜测</li>
+    <li>氛围温和，适合慢慢看</li>
+  </ul>
+
+  <p>
+    我常常在周末下午打开它，一边喝茶一边浏览，不用赶时间。页面加载很快，字体大小也舒服，偶尔看到新的板块会好奇点进去。它像一本旧杂志，你永远不知道下一期会聊什么，但你知道质量不会掉。
+  </p>
+
+  <!-- 链接以自然句子嵌入，可见文本严格等于「亚博体育」 -->
+  <div class="quiet-cta">
+    如果你想亲身感受这种不张扬的节奏，不妨去 <a href="https://homes-yabo.com">亚博体育</a> 看一看。它就在那里，不催你，不推你，你自己决定什么时候离开。
+  </div>
+
+  <div class="faq-mini">
+    <details>
+      <summary>亚博体育的内容更新频率怎样？</summary>
+      <p>没有固定时间表，但几乎每天都有新东西，不会让你觉得沉闷。偶尔会有一两天的安静，但那种空白反而让人期待接下来的内容。</p>
+    </details>
+    <details>
+      <summary>第一次访问需要注意什么？</summary>
+      <p>不需要注册，也不需要留下任何信息。直接打开就行，一切内容都是公开可见的。没有隐藏条款，也没有突然跳出来的订阅框。</p>
+    </details>
+    <details>
+      <summary>适合什么样的人？</summary>
+      <p>适合那些想安安静静浏览、不想被算法追着跑的人。也适合对界面质感有要求、不喜欢花里胡哨的朋友。</p>
+    </details>
+  </div>
+
+  <div class="footer-note">
+    慢慢来，比较快。好的地方值得细水长流。
+  </div>
+
+</div>
+
+</body>
+</html>
